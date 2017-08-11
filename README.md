@@ -1,5 +1,11 @@
 # The Sound of Eyemole  
 
+## Notes:  
+This code was based off of the code by Chuck Anderson, Dept. of Computer Science, Colorado State University  
+(see http://www.cs.colostate.edu/eeg  for more information)   
+
+This code may be copied, distributed, and modified, as long as the author is credited. Also, if you publish this or any derived code on the web, include a link to the above URL.  
+
 ## How to Use:  
 
 1. Place any EEG data (2 x n_samples matrix, saved as a .mat file) in the data/eeg_data folder.  
