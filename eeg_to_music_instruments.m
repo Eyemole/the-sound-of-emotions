@@ -7,8 +7,8 @@ OUTPUT_PATH = fullfile(pwd, 'output'); % Where to output the file
 % Change the filenames below for processing new files
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-EEG_FILENAME = 'sad_ica.mat'; % Name of the EEG file
-OUTPUT_FILENAME = 'the_sound_of_sadness.wav'; % Name of the output file 
+EEG_FILENAME = 'happy_ica.mat'; % Name of the EEG file
+OUTPUT_FILENAME = 'the_sound_of_happiness.wav'; % Name of the output file 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Play around with the parameters below to change the sound
@@ -22,7 +22,7 @@ VOLUME = [1 4 25 100]; % How loud each instrument is, relatively
                        % higher frequencies have lower amplitude and they
                        % will be drowned out otherwise) 
 NUM_TONES = [4 4 1 2]; % The number of different tones played at each time interval for each instrument 
-EEG_RANGE = [4 8; 8 12; 12 30; 30 60]; % Frequency ranges (# of frequencies must be <= # of instruments)
+EEG_RANGE = [4 8; 8 12; 12 30; 30 59]; % Frequency ranges (# of frequencies must be <= # of instruments)
 
 PLAYBACK_RATE = 1; % How much to speed up / slow down the file (if < 1, file will be slowed down; if > 1, will be sped up)
 
@@ -32,7 +32,7 @@ toneData = [];
 load(fullfile(DATA_PATH, EEG_FILENAME));
 
 for i = 1:min(256, size(data,1)) % 256 is the channel limit for .wav files in audiowrite 
-    [toneData1 Fs] = eegToTones(data(i,:), note_tones(:,:,1:100000), SCALINGS, EEG_RANGE);
+    [toneData1 Fs] = eegToTones(data(i,:), note_tones(:,:,1:100000), SCALINGS, VOLUME, NUM_TONES, EEG_RANGE);
     toneData(1:size(toneData1',1),i) = toneData1';
 end
 
@@ -70,7 +70,7 @@ function [eegData Fs] = eegToTones(eeg, notes, scalings, volume_factor, num_tone
 if nargin < 3, scalings = ones(1, size(notes, 1)); end;
 if nargin < 4, volume_factor = logspace(0, 2, size(notes,1)); end;
 if nargin < 5, num_tones = ones(1, size(notes,1))*4; end;   
-if nargin < 6, freq_range = [ 4 8; 8 12; 12 30; 30 60]; end; % Theta - 4-8 Hz, Alpha - 8-12 Hz, Beta - 12-30 Hz, Gamma - 30-60 Hz
+if nargin < 6, freq_range = [ 4 8; 8 12; 12 30; 30 45]; end; % Theta - 4-8 Hz, Alpha - 8-12 Hz, Beta - 12-30 Hz, Gamma - 30-60 Hz
 if nargin < 7, lowf = min(min(freq_range)); end
 if nargin < 8, highf = max(max(freq_range)); end
 if nargin < 9, win = 512; end
@@ -115,7 +115,7 @@ for col = 1:size(signal,2)
         if (length(currfreqs) > 1) 
             order = order(currfreqs);
             winners = order(1:nwinners);
-
+            f(winners)
             for i = 1:nwinners
                 toneRows(i) = winners(i);
                 toneCols = round((col-1)*Fs*seconds+1 : min(maxDuration, (col + scalings(eegf) - 1)*Fs*seconds));
