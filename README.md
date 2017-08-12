@@ -17,7 +17,7 @@ This code may be copied, distributed, and modified, as long as the author is cre
 ## Examples:   
 
 You can download samples of what the results sound like from the output folder in this repository:  
-    - [Disgust](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_disgust.wav)   
-    - [Fear](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_fear.wav)    
-    - [Joy](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_joy.wav)    
-    - [Sadness](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_sadness.wav)  
+- [Disgust](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_disgust.wav)   
+- [Fear](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_fear.wav)    
+- [Joy](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_joy.wav)    
+- [Sadness](https://github.com/Eyemole/the-sound-of-emotions/blob/master/output/the_sound_of_sadness.wav)  
