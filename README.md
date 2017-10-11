@@ -19,6 +19,7 @@ This code may be copied, distributed, and modified, as long as the author is cre
 1. Clone or download this repository.   
 2. Install [Muse Direct](http://www.choosemuse.com/developer#direct) (requires Windows 10).   
 3. In Muse Direct, click the 'Add' button and choose 'OSC UDP' for the destination. Select the settings exatly as shown in the picture below (except for the nickname, it really doesn't matter):   
+![pic](https://user-images.githubusercontent.com/13011161/31425092-9726292e-ae12-11e7-9060-686779c54301.PNG)  
 4. In a terminal, change to the the-sound-of-emotions folder and run ```python eeg_to_music_live.py```   
 5. Tune in to your brain-generated beats :sunglasses:
 
